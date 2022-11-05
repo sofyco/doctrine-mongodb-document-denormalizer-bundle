@@ -16,10 +16,11 @@ final class DocumentDenormalizer implements DenormalizerInterface
      * @param mixed        $data
      * @param class-string $type
      * @param string|null  $format
+     * @param array        $context
      *
      * @return bool
      */
-    public function supportsDenormalization(mixed $data, string $type, string $format = null): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
         return $this->dm->getMetadataFactory()->hasMetadataFor($type);
     }
