@@ -33,7 +33,7 @@ final class DocumentDenormalizer extends KernelTestCase
     public function testDocumentNotFound(): void
     {
         self::expectException(NotFoundHttpException::class);
-        self::expectExceptionMessage('resource.not_found');
+        self::expectExceptionMessage('resource.notFound');
 
         self::getDocumentManager()->getRepository(Product::class); // bug with metadata
 

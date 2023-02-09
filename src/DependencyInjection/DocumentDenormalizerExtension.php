@@ -2,21 +2,17 @@
 
 namespace Sofyco\Bundle\Doctrine\MongoDB\DocumentDenormalizerBundle\DependencyInjection;
 
-use Doctrine\ODM\MongoDB\DocumentManager;
 use Sofyco\Bundle\Doctrine\MongoDB\DocumentDenormalizerBundle\Serializer\DocumentDenormalizer;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
+use Symfony\Component\DependencyInjection\Extension\Extension;
 
-final class DocumentDenormalizerExtension extends ConfigurableExtension
+final class DocumentDenormalizerExtension extends Extension
 {
-    protected function loadInternal(array $mergedConfig, ContainerBuilder $container): void
+    public function load(array $configs, ContainerBuilder $container): void
     {
-        $denormalizer = new Definition(DocumentDenormalizer::class, [
-            new Reference(DocumentManager::class),
-            $mergedConfig['translation_resource_not_found'],
-        ]);
+        $denormalizer = new Definition(DocumentDenormalizer::class);
+        $denormalizer->setAutowired(true);
         $denormalizer->setAutoconfigured(true);
 
         $container->setDefinition(DocumentDenormalizer::class, $denormalizer);

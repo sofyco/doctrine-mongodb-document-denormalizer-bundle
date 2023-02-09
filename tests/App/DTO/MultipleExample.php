@@ -9,7 +9,7 @@ final class MultipleExample
     public int $quantity;
 
     /**
-     * @var iterable|Product[]
+     * @var Product[]
      */
     public iterable $products = [];
 }
