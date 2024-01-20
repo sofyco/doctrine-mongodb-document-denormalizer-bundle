@@ -21,9 +21,6 @@ final readonly class DocumentDenormalizer implements DenormalizerInterface
 
     /**
      * @param class-string $type
-     *
-     * @throws \Doctrine\Persistence\Mapping\MappingException
-     * @throws \ReflectionException
      */
     public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
@@ -39,5 +36,11 @@ final readonly class DocumentDenormalizer implements DenormalizerInterface
         }
 
         return null;
+    }
+
+    #[\Override]
+    public function getSupportedTypes(?string $format): array
+    {
+        return ['object' => true];
     }
 }

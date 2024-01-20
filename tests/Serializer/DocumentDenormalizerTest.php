@@ -12,7 +12,7 @@ use Symfony\Component\Serializer\Exception\NotNormalizableValueException;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
 
-final class DocumentDenormalizer extends KernelTestCase
+final class DocumentDenormalizerTest extends KernelTestCase
 {
     public function testDenormalizeSingleDocument(): void
     {

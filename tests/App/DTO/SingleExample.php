@@ -7,5 +7,6 @@ use Sofyco\Bundle\Doctrine\MongoDB\DocumentDenormalizerBundle\Tests\App\Document
 final class SingleExample
 {
     public int $quantity;
+
     public Product $product;
 }
