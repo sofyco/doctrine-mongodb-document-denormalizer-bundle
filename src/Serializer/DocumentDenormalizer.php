@@ -14,7 +14,7 @@ final readonly class DocumentDenormalizer implements DenormalizerInterface
     /**
      * @param class-string $type
      */
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return $this->dm->getMetadataFactory()->hasMetadataFor($type);
     }
@@ -22,7 +22,7 @@ final readonly class DocumentDenormalizer implements DenormalizerInterface
     /**
      * @param class-string $type
      */
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $repository = $this->dm->getRepository($type);
         $identifier = (string) \current($this->dm->getMetadataFactory()->getMetadataFor($type)->getIdentifier());

@@ -14,6 +14,13 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 final class DocumentDenormalizerTest extends KernelTestCase
 {
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+
+        restore_exception_handler();
+    }
+
     public function testDenormalizeSingleDocument(): void
     {
         $this->loadFixtures();
